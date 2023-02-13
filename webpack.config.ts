@@ -11,12 +11,12 @@ const paths: BuildPaths = {
   html: path.resolve(__dirname, "public", "index.html"),
 }
 
-const mode = env. mode || 'development';
+const mode = env.mode || 'development';
 const PORT = env.port || 3000;
 const isDev = mode === 'development';
 
 const config: webpack.Configuration = buildWebpackConfig({
-  mode: 'development',
+  mode: mode,
   paths,
   isDev,
   port: PORT,
