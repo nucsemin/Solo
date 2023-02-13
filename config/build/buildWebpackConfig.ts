@@ -1,4 +1,5 @@
 import webpack from "webpack";
+import { buildDevServer } from "./buildDevServer";
 import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
 import { buildResolvers } from "./buildResolvers";
@@ -21,5 +22,7 @@ const { paths, mode } = options;
       rules: buildLoaders(),
     },
     resolve: buildResolvers(),
+    devtool: 'inline-source-map',
+    devServer: buildDevServer(options),
   }
 }
