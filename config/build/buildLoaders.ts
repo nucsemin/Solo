@@ -1,11 +1,25 @@
 import webpack from "webpack";
 
 export function buildLoaders(): webpack.RuleSetRule[] {
+  // если не использует тайпскрипт, то нужен babel-loader
+  // (перегоняет новый стандарт js в старый, чтобы всеми браузерами поддерживались)
   const typeScriptLoader = {
-    test: /\.tsx?$/,
+    test: /\.tsx|jsx?$/,
     use: "ts-loader",
     exclude: /node_modules/,
   };
 
-  return [typeScriptLoader];
+  const cssLoader = {
+    test: /\.s[ac]ss$/i,
+    use: [
+      // Creates `style` nodes from JS strings
+      "style-loader",
+      // Translates CSS into CommonJS
+      "css-loader",
+      // Compiles Sass to CSS
+      "sass-loader",
+    ],
+  };
+
+  return [typeScriptLoader, cssLoader];
 }
