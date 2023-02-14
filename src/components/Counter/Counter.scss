@@ -1,0 +1,8 @@
+$increment-backgroundColor: grey;
+
+.increment {
+  width: 50px;
+  height: 20px;
+  color: white;
+  background-color: $increment-backgroundColor;
+}
