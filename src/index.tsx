@@ -1,8 +1,10 @@
 import { render } from "react-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 import App from "./App";
 
 render(
-    <App/>,
-  document.getElementById('root')
-)
-
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
