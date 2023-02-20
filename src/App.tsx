@@ -5,6 +5,7 @@ import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
 import { MainPageAsync } from "./pages/MainPage/MainPage.async";
 import "./styles/index.scss";
 import { ThemeContext } from "./theme/ThemeContext";
+import { useTheme } from "./theme/useTheme";
 
 export enum Theme {
   LIGHT = 'light',
@@ -12,10 +13,7 @@ export enum Theme {
 }
 
 export function App() {
-  const {setTheme, theme} = useContext(ThemeContext)
-  const toggleTheme = () => {
-    setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
-  }
+  const {theme, toggleTheme} = useTheme()
 
   return (
     <div className={`app ${theme}`}>
