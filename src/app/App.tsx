@@ -1,10 +1,10 @@
-import { Suspense, useContext, useState } from "react";
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { classNames } from "./helpers/classNames";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
-import { useTheme } from "./theme/useTheme";
+import { classNames } from "helpers/classNames";
+import { AboutPageAsync } from "pages/AboutPage/AboutPage.async";
+import { MainPageAsync } from "pages/MainPage/MainPage.async";
+import { useTheme } from "app/providers/ThemeProvider";
 import "./styles/index.scss";
 
 export enum Theme {
