@@ -6,6 +6,7 @@ import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
 import { useTheme } from "app/providers/ThemeProvider";
 import "./styles/index.scss";
+import { AppRouter } from "./providers/router";
 
 export enum Theme {
   LIGHT = 'light',
@@ -20,12 +21,7 @@ export function App() {
       <button onClick={toggleTheme}>TOGGLE</button>
       <Link to={"/"}>Main Page</Link>
       <Link to={"/about"}>About Page</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Suspense>
+      <AppRouter/>
     </div>
   );
 }
