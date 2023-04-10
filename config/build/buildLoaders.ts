@@ -33,5 +33,19 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [typeScriptLoader, cssLoader];
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+// woff2|woff // для работы с шрифтами
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
+  return [typeScriptLoader, cssLoader, svgLoader, fileLoader];
 }
