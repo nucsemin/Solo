@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru', // язык по умолчанию
-    debug: __IS_DEV__ ? true : false, // вывод в консоль браузера подсказок
+    debug: __IS_DEV__, // вывод в консоль браузера подсказок
     interpolation: {
       escapeValue: false,
     }
