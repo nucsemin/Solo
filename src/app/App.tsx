@@ -10,7 +10,16 @@ import "./styles/index.scss";
 function MyComponent() {
   const { t, i18n } = useTranslation();
 
-  return <h1>{t("Тестовый пример")}</h1>;
+  const onToggle = () => {
+    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+  };
+
+  return (
+    <div>
+      <button onClick={onToggle}>{t("Перевод")}</button>
+      {t("Тестовый пример")}
+    </div>
+  );
 }
 
 export enum Theme {
