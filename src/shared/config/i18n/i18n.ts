@@ -13,6 +13,9 @@ i18n
     debug: __IS_DEV__, // вывод в консоль браузера подсказок
     interpolation: {
       escapeValue: false,
+    },
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     }
   });
 
