@@ -5,7 +5,6 @@ function MainPage() {
 
   return (
     <div>
-      {t('новый перевод')}
       {t('Главная страница')}
     </div>
   );
