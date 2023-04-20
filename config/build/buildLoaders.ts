@@ -5,6 +5,26 @@ import { BuildOptions } from "./types/config";
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
   // если не использует тайпскрипт, то нужен babel-loader
   // (перегоняет новый стандарт js в старый, чтобы всеми браузерами поддерживались)
+  const babelLoader = {
+    test: /\.(js|ts|tsx|)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [
+            [
+              "i18next-extract",
+            {
+              locales: ["en", "ru"],
+              keyAsDefaultValue: true,
+            }
+          ],
+          ]
+      },
+    }
+  }
+
   const typeScriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -47,5 +67,5 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     ],
   }
 
-  return [typeScriptLoader, cssLoader, svgLoader, fileLoader];
+  return [babelLoader, typeScriptLoader, cssLoader, svgLoader, fileLoader];
 }
