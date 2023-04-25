@@ -37,7 +37,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'import/no-extraneous-dependencies': 'warn',
         'no-underscore-dangle': 'off',
-        'no-undef': 'off'
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: 'writable', // true
