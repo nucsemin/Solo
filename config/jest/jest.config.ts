@@ -44,7 +44,7 @@ export default {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
