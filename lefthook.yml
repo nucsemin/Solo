@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    stylelint:
+      run: npx stylelint {staged_files}
+      glob: "**/*.scss"
+    eslint:
+      run: npx eslint --ext .ts,.tsx {staged_files}
+      glob: "*.{js,ts,jsx,tsx}"
