@@ -74,6 +74,7 @@ export default {
 
     // Make calling deprecated APIs throw helpful error messages
     // errorOnDeprecated: false,
+    
 
     // Force coverage collection from ignored files using an array of glob patterns
     // forceCoverageMatch: [],
