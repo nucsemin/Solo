@@ -17,7 +17,7 @@ pre-commit:
   no_tty: true
   commands:
     eslint:
+      # run: npx eslint --ext .ts,.tsx {staged_files}
+      # glob: 'src/**/*.{ts,tsx}'
       run: npx eslint --ext .ts,.tsx {staged_files}
-      glob: 'src/**/*.{ts,tsx}'
-      # glob: "*.{js,ts,jsx,tsx}"
-      #  run: npx eslint \"**/*.{ts,tsx,js,jsx}\" {staged_files}
+      glob: "*.{js,ts,jsx,tsx}"

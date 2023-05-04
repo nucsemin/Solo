@@ -74,7 +74,6 @@ export default {
 
     // Make calling deprecated APIs throw helpful error messages
     // errorOnDeprecated: false,
-    
 
     // Force coverage collection from ignored files using an array of glob patterns
     // forceCoverageMatch: [],
@@ -88,7 +87,8 @@ export default {
     // A set of global variables that need to be available in all test environments
     // globals: {},
 
-    // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+    // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g.
+    // maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
