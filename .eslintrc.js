@@ -33,7 +33,7 @@ module.exports = {
         'import/no-unresolved': 'off',
         'no-shadow': 'off',
         'import/prefer-default-export': 'off',
-        'max-len': ['error', 150],
+        'max-len': ['error', { ignoreComments: true, code: 150 }],
         'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'react/function-component-definition': 'off',
