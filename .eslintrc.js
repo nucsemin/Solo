@@ -40,7 +40,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'import/no-extraneous-dependencies': 'warn',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': ['error'],
     },
     globals: {
         __IS_DEV__: 'writable', // true
