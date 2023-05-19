@@ -1,5 +1,4 @@
-import React from 'react';
-
+/* eslint-disable no-undef */
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
