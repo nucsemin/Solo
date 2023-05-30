@@ -20,7 +20,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                             keyAsDefaultValue: true,
                         },
                     ],
-                    [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+                    // [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
                 ],
             },
         },
