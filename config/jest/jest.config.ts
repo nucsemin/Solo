@@ -51,6 +51,8 @@ export default {
     modulePaths: [
         '<rootDir>src',
     ],
+    // Для jest.setup.js
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup.ts'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -97,7 +99,9 @@ export default {
     // maxWorkers: "50%",
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+    },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
