@@ -40,11 +40,16 @@ export default {
     ],
 
     // The root directory that Jest should scan for tests and modules within
+    // Корень нашего проекта, который мы создавали.
     rootDir: '../../',
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    // Путь до наших модулей, т.е. до папки src
+    modulePaths: [
+        '<rootDir>src',
     ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
