@@ -39,5 +39,5 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./config/jest/jest.setup.ts"],
+  "include": ["./config/jest/jest.setup.ts", "src"],
 }
