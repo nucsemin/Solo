@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from './Button';
+import { Button } from '6-shared/ui/Button';
+import { ThemeButton } from '6-shared/ui/Button/ui/Button';
 
 describe('Button', () => {
     test('simple test', () => {
@@ -14,9 +15,9 @@ describe('Button', () => {
         screen.debug(); // чтобы увидеть что у нас отрендерилось, какая разметка
     });
 
-    test('with theme props undefined', () => {
-        render(<Button>TEST</Button>);
-        expect(screen.getByText('TEST')).toHaveClass('undefined'); // проверяет наличие класса стиля
+    test('with theme props fire', () => {
+        render(<Button className="fire">TEST</Button>);
+        expect(screen.getByText('TEST')).toHaveClass('fire'); // проверяет наличие класса стиля
         screen.debug(); // чтобы увидеть что у нас отрендерилось, какая разметка
     });
 });
