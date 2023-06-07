@@ -1,14 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './Button';
+import { Button, ThemeButton } from './Button';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
     component: Button,
     tags: ['autodocs'],
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
 };
 
 export default meta;
@@ -16,27 +13,13 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
     args: {
-        primary: true,
-        label: 'Button',
+        children: 'Text',
     },
 };
 
-export const Secondary: Story = {
+export const Clear: Story = {
     args: {
-        label: 'Button',
-    },
-};
-
-export const Large: Story = {
-    args: {
-        size: 'large',
-        label: 'Button',
-    },
-};
-
-export const Small: Story = {
-    args: {
-        size: 'small',
-        label: 'Button',
+        children: 'Text',
+        theme: ThemeButton.CLEAR,
     },
 };
