@@ -3,7 +3,7 @@ import { classNames } from '6-shared/lib/classNames/classNames';
 import DarkIcon from '6-shared/assets/icons/theme-dark.svg';
 import LightIcon from '6-shared/assets/icons/theme-light.svg';
 import { Button } from '6-shared/ui/Button';
-import { ThemeButton } from '6-shared/ui/Button/ui';
+import { ThemeButton } from '6-shared/ui/Button/ui/Button';
 import s from './styles.module.scss';
 
 interface ThemeSwitcherProps {

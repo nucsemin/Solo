@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -40,12 +42,19 @@ export default {
     ],
 
     // The root directory that Jest should scan for tests and modules within
+    // Корень нашего проекта, который мы создавали.
     rootDir: '../../',
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    // Путь до наших модулей, т.е. до папки src
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    // Для jest.setup.js
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup.ts'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -92,7 +101,11 @@ export default {
     // maxWorkers: "50%",
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
+    // Настройка импортов для scss, для файлов svg
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'), // значение - это путь до файла. грубо говоря это мок который будет использоваться для всех импортов где используется свг
+    },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
