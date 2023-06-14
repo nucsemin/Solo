@@ -20,6 +20,9 @@ export function Navbar({ className }: NavbarProps) {
                 <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
                     {t('О сайте')}
                 </AppLink>
+                <AppLink theme={AppLinkTheme.SECONDARY} to="/map">
+                    {t('Map')}
+                </AppLink>
             </div>
         </div>
     );
