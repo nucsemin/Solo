@@ -1,7 +1,7 @@
+import { Theme } from '1-app/providers/ThemeProvider';
+import ThemeDecorator from '6-shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button, ThemeButton } from './Button';
-import '1-app/styles/index.scss';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
@@ -17,6 +17,13 @@ export const Primary: Story = {
         children: 'Text',
     },
 };
+
+export const PrimaryDark: Story = {
+    args: {
+        children: 'Text',
+    },
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Clear: Story = {
     args: {
