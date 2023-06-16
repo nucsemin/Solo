@@ -1,6 +1,6 @@
 import { Theme } from '1-app/providers/ThemeProvider';
 import { Sidebar } from '3-widgets/Sidebar/ui/Sidebar';
-import ThemeDecorator from '6-shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import ThemeDecorator from '6-shared/config/storybook/ThemeDecorator';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Sidebar> = {

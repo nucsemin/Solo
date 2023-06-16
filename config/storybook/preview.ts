@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import StyleDecorator from '../../src/6-shared/config/storybook/StyleDecorator/StyleDecorator';
-import ThemeDecorator from '../../src/6-shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import StyleDecorator from '../../src/6-shared/config/storybook/StyleDecorator';
+import ThemeDecorator from '../../src/6-shared/config/storybook/ThemeDecorator';
 import { Theme } from '../../src/1-app/providers/ThemeProvider/lib/ThemeContext';
 import '1-app/styles/index.scss'; // dont work
 
