@@ -1,5 +1,5 @@
 import { Theme } from '1-app/providers/ThemeProvider';
-import { AboutPage } from '2-pages/AboutPage';
+import AboutPage from '2-pages/AboutPage/ui/AboutPage';
 import ThemeDecorator from '6-shared/config/storybook/ThemeDecorator';
 import type { Meta, StoryObj } from '@storybook/react';
 
