@@ -2,8 +2,7 @@ name: testing, building, installing
 on: [push, pull_request]
 
 jobs:
-  pipeline:
-
+  name_job: 
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,5 +17,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: build production project
+        run: npm run build:prod
+      - name: eslint linting
+        run: npm run lint:ts
+      - name: stylelint linting
+        run: npm run lint:scss
       - name: Unit testing
         run: npm run test:unit
