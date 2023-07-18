@@ -1,0 +1,31 @@
+name: testing, building, installing
+on: [push, pull_request]
+
+jobs:
+  name_job: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with: 
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      - name: build production project
+        run: npm run build:prod
+      - name: eslint linting
+        run: npm run lint:ts
+      - name: stylelint linting
+        run: npm run lint:scss
+      - name: Unit testing
+        run: npm run test:unit
+      - name: build storybook
+        run: npm run storybook:build
+      - name: screenshot testing
+        run: npm run test:ui:ci
