@@ -1,0 +1,7 @@
+.git/
+.github/
+.loki/
+.vscode/
+build/
+node_modules/
+storybook-static/
