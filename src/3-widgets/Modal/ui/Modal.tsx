@@ -1,7 +1,8 @@
 import React, {
-    FC, ReactNode, useRef, useState,
+    FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from '6-shared/lib/classNames/classNames';
+import { Portal } from '6-shared/ui/Portal';
 import s from './styles.module.scss';
 
 interface ModalProps {
@@ -22,7 +23,8 @@ export const Modal: FC<ModalProps> = (props) => {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const closeHandler = () => {
+    // Новые ссылки при ререндере, поэтому положил в useCallback.
+    const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
             timerRef.current = setTimeout(() => {
@@ -30,11 +32,27 @@ export const Modal: FC<ModalProps> = (props) => {
                 setIsClosing(false);
             }, 300);
         }
-    };
+    }, [onClose]);
 
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
+
+    // Новые ссылки при ререндере, поэтому положил в useCallback.
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            closeHandler();
+        }
+    }, [closeHandler]);
+
+    useEffect(() => () => {
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
+        }
+        console.log('useEffect');
+        clearTimeout(timerRef.current);
+        window.removeEventListener('keydown', onKeyDown);
+    }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
         [s.opened]: isOpen,
@@ -42,14 +60,16 @@ export const Modal: FC<ModalProps> = (props) => {
     };
 
     return (
-        <div
-            className={classNames(s.Modal, mods, [className])}
-        >
-            <div className={s.overlay} onClick={closeHandler}>
-                <div className={s.content} onClick={onContentClick}>
-                    {children}
+        <Portal>
+            <div
+                className={classNames(s.Modal, mods, [className])}
+            >
+                <div className={s.overlay} onClick={closeHandler}>
+                    <div className={s.content} onClick={onContentClick}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     );
 };
