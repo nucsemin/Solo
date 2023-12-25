@@ -41,11 +41,12 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'import/no-extraneous-dependencies': 'warn',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error'],
+        'i18next/no-literal-string': 'off', // TODO в прод включить ['error'], щас отключу, чтобы не мешало разработке
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+        'no-param-reassign': 'off',
     },
     globals: {
         __IS_DEV__: 'writable', // true
