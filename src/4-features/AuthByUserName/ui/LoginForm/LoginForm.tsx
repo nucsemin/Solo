@@ -1,0 +1,20 @@
+import { classNames } from '6-shared/lib/classNames/classNames';
+import { Button } from '6-shared/ui/Button';
+import { useTranslation } from 'react-i18next';
+import s from './LoginForm.module.scss';
+
+interface LoginFormProps {
+  className?: string;
+}
+
+export function LoginForm({ className }: LoginFormProps) {
+    const { t } = useTranslation('Sign in');
+
+    return (
+        <div className={classNames(s.LoginForm, {}, [className])}>
+            <input type="text" className={s.input} />
+            <input type="text" className={s.input} />
+            <Button className={s.btnForm}>{t('Войти')}</Button>
+        </div>
+    );
+}

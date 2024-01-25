@@ -1,4 +1,5 @@
 import { Modal } from '3-widgets/Modal';
+import { LoginModal } from '4-features/AuthByUserName/ui/LoginModal/LoginModal';
 import { classNames } from '6-shared/lib/classNames/classNames';
 import { Button } from '6-shared/ui/Button';
 import { ThemeButton } from '6-shared/ui/Button/ui/Button';
@@ -15,8 +16,12 @@ export function Navbar({ className }: NavbarProps) {
     const { t, i18n } = useTranslation('navbar');
     const [isAuthOpen, setIsAuthOpen] = useState(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthOpen((prev) => !prev);
+    const onCloseModal = useCallback(() => {
+        setIsAuthOpen(false);
+    }, []);
+
+    const onOpenModal = useCallback(() => {
+        setIsAuthOpen(true);
     }, []);
 
     return (
@@ -24,17 +29,14 @@ export function Navbar({ className }: NavbarProps) {
             <Button
                 theme={ThemeButton.CLEAR_INVERTED}
                 className={s.links}
-                onClick={onToggleModal}
+                onClick={onOpenModal}
             >
                 {t('Войти')}
             </Button>
-            <Modal
+            <LoginModal
                 isOpen={isAuthOpen}
-                onClose={onToggleModal}
-            >
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standar.'
-            </Modal>
+                onClose={onCloseModal}
+            />
         </div>
     );
 }
