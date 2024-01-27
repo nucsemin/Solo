@@ -10,6 +10,7 @@ interface ModalProps {
   children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -17,11 +18,18 @@ export const Modal: FC<ModalProps> = (props) => {
         className,
         children,
         isOpen,
+        lazy,
         onClose,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    // управление модалкой и автофокусом
+    useEffect(() => {
+        if (isOpen) setIsMounted(true);
+    }, [isOpen]);
 
     // Новые ссылки при ререндере, поэтому положил в useCallback.
     const closeHandler = useCallback(() => {
@@ -58,6 +66,10 @@ export const Modal: FC<ModalProps> = (props) => {
         [s.opened]: isOpen,
         [s.isClosing]: isClosing,
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

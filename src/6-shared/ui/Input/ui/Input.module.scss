@@ -1,0 +1,49 @@
+.InputWrapper {
+    display: flex;
+}
+
+.caretkaWrapper {
+    flex-grow: 1;
+    position: relative;
+}
+
+.input {
+    caret-color: transparent;
+    color: var(--primary-color);
+    outline: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+
+    :focus {
+        outline: none;
+    }
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.caretka {
+    width: 8px;
+    height: 3px;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    animation: blink 0.7s forwards infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
