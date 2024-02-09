@@ -1,4 +1,4 @@
-export interface userSchema {
+export interface UserSchema {
   username: string;
   password: string;
 }

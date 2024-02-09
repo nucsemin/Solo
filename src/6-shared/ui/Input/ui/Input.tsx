@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, {
-    ButtonHTMLAttributes, FC, InputHTMLAttributes, useEffect, useRef, useState,
+    ButtonHTMLAttributes, FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from '6-shared/lib/classNames/classNames';
 import s from './Input.module.scss';
@@ -15,13 +15,14 @@ interface InputProps
   autoFocus?: boolean;
 }
 
-export const Input: FC<InputProps> = (props) => {
+export const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
         className, type, placeholder, value, autoFocus, onChange, ...otherProps
     } = props;
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
     const inputRef = useRef<HTMLInputElement>();
+    console.log('render');
 
     useEffect(() => {
         if (autoFocus) {
@@ -67,4 +68,4 @@ export const Input: FC<InputProps> = (props) => {
             </div>
         </div>
     );
-};
+});
