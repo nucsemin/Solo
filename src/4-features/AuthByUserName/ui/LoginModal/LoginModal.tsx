@@ -15,6 +15,7 @@ export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
         <Modal
             isOpen={isOpen}
             onClose={onClose}
+            lazy
         >
             <LoginForm />
         </Modal>

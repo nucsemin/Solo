@@ -1,7 +1,7 @@
 import { userReducer, userActions } from './model/slice/userSlice';
 import { User } from './ui/User';
-import { userSchema } from './model/types/userSchema';
+import { UserSchema } from './model/types/UserSchema';
 
 export {
-    User, userSchema, userReducer, userActions,
+    User, UserSchema, userReducer, userActions,
 };
